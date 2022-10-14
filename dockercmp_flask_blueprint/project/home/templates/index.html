@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block pagestyles %}
+    {% assets "home_style_bundle" %}
+    <link
+        href="{{ ASSET_URL }}"
+        rel="stylesheet"
+        type="text/css"
+    />
+  {% endassets %}
+{% endblock %}
+
+{% block content %}
+    <div class="big-container">
+    {% include "navigation.html" %}
+        <div class="somethin">
+                <div class='btn-graph' data-location="{{ url_for('home_bp.say_hi') }}" id='btn-hi'>say hi</div>
+        </div>
+    </div>
+{% endblock %}
+
