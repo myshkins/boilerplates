@@ -3,26 +3,28 @@ version: '3.8'
 services:
   api:
     container_name: air_api
-    build: ./api
+    build: ./services/api
+    command: uvicorn main:app --host 0.0.0.0 --port 80
     ports:
-      - 8000:5000
+      - 8100:80
     volumes:
-      - ./api:/api
+      - ./services/api:/api
     env_file:
-      - ./api/.env.docker.dev
+      - ./services/api/.env.dev
     depends_on:
       db:
         condition: service_healthy
 
   app:
     container_name: air_app
-    build: ./air_app
+    build: ./services/air_app
+    command: python wsgi.py
     ports:
-      - 8100:5000
+      - 800:5000
     volumes:
-      - ./air_app:/app
+      - ./services/air_app:/app
     env_file:
-      - ./air_app/.env.docker.dev
+      - ./services/air_app/.env.dev
     depends_on:
       db:
         condition: service_healthy
