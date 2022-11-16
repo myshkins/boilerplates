@@ -20,7 +20,7 @@ services:
     build: ./services/air_app
     command: python wsgi.py
     ports:
-      - 800:5000
+      - 8000:5000
     volumes:
       - ./services/air_app:/app
     env_file:
