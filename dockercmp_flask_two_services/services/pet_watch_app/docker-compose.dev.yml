@@ -4,6 +4,7 @@ services:
   web:
     build:
       context: .
+    command: python wsgi.py
     ports:
       - 8000:5000
     volumes:

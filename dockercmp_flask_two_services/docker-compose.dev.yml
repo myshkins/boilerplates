@@ -3,26 +3,28 @@ version: '3.8'
 services:
   api:
     container_name: pet_watch_api
-    build: ./api
+    build: ./services/api
+    command: python wsgi.py
     ports:
       - 8000:5000
     volumes:
-      - ./api:/api
+      - ./services/api:/api
     env_file:
-      - ./api/.env.docker.dev
+      - ./services/api/.env.docker.dev
     depends_on:
       db:
         condition: service_healthy
 
   app:
     container_name: pet_watch_app
-    build: ./pet_watch_app
+    build: ./services/pet_watch_app
+    command: python wsgi.py
     ports:
       - 8100:5000
     volumes:
-      - ./pet_watch_app:/app
+      - ./services/pet_watch_app:/app
     env_file:
-      - ./pet_watch_app/.env.docker.dev
+      - ./services/pet_watch_app/.env.docker.dev
     depends_on:
       db:
         condition: service_healthy

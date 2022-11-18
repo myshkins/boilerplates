@@ -1,14 +1,15 @@
+"""database models"""
 from project import db
 
-class Temps(db.Model):
-    """Data model for user accounts."""
+class DataPoint(db.Model):
+    """Schema for air quality data point."""
 
-    __tablename__ = 'temperature'
+    __tablename__ = 'datapoint'
     id = db.Column(
         db.Integer,
         primary_key=True
     )
-    temperature = db.Column(
+    pm = db.Column(
         db.Float,
         unique=False,
         nullable=False
@@ -21,4 +22,4 @@ class Temps(db.Model):
     )
 
     def __repr__(self):
-        return '<User {}>'.format(self.username)
+        return f'<DataPoint {self.time}, {self.pm}>'

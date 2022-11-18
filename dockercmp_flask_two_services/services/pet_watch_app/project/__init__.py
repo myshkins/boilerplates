@@ -7,7 +7,7 @@ db = SQLAlchemy()
 
 
 
-def init_app():
+def create_app():
     app = Flask(__name__, instance_relative_config=False)
     app.config.from_object(Config)
     
@@ -20,7 +20,6 @@ def init_app():
         from .home import home
         from .about import about
 
-        db.create_all()
         app.register_blueprint(home.home_bp)
         app.register_blueprint(about.about_bp)
         compile_assets(assets)
