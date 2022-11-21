@@ -3,13 +3,13 @@ version: '3.8'
 services:
   api:
     build: .
-    command: uvicorn main:app --host 0.0.0.0 --port 80
+    command: uvicorn main:app --host 0.0.0.0 --port 8100 --reload
     ports:
-      - 8100:80
+      - 8100:8100
     volumes:
-      - ./:/api
+      - ./services/api:/api
     env_file:
-      - ./.env.dev
+      - ./services/api/.env.dev
     depends_on:
       db:
         condition: service_healthy

@@ -4,9 +4,9 @@ services:
   api:
     container_name: air_api
     build: ./services/api
-    command: uvicorn main:app --host 0.0.0.0 --port 80
+    command: uvicorn main:app --host 0.0.0.0 --port 8100 --reload
     ports:
-      - 8100:80
+      - 8100:8100
     volumes:
       - ./services/api:/api
     env_file:

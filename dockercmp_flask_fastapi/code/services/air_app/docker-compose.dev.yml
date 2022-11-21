@@ -8,9 +8,9 @@ services:
     ports:
       - 8000:5000
     volumes:
-      - ./:/app
+      - ./services/air_app:/air_app
     env_file:
-      - ./.env.dev
+      - ./services/air_app/.env.dev
     depends_on:
       db:
         condition: service_healthy
