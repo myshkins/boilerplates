@@ -1,22 +1,30 @@
 :root {
-    --bg-color: rgb(255, 255, 255);
+  --bg-color: rgb(255, 255, 255);
 }
 
 html {
-    font-size: 10px;
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 body {
-    min-height: 100vh;
-    background-color: var(--bg-color);
+  min-height: 100vh;
+  background-color: var(--bg-color);
 }
 
-body,html {
-    margin: 0;
-    padding: 0;
-    font-family: Helvetica, Arial, sans-serif;
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
 }
